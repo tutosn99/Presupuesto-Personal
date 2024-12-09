@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <script type="module" src="ui.js" defer></script>
+    <script type="module" src="app.js" defer></script>
+    <script type="module" src="formInfo.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -37,17 +40,17 @@
             </article>
         </section>
         <button id="addBtn">+ Agregar Transacción</button>
-        <article>
-            <h2>Nueva Transacción</h2>
+        <article id="formTransferencia">
+            <h2><span> Nueva Transacción</span> <span id="btnClose" value="btnClose"><i class='bx bx-x'></i></span></h2>
             
             <form id="transaccion-form">
                 <div class="transaccion-type">
                     <label class="label-radio">
-                        <input type="radio" name="transaccion" value="ingreso" class="circle" checked>
+                        <input type="radio" name="transaccion" value="ingreso" class="circle" class="option" checked>
                         Ingreso
                     </label>
                     <label class="label-radio">
-                        <input type="radio" name="transaccion" value="gasto" class="circle">
+                        <input type="radio" name="transaccion" value="gasto" class="circle" class="option">
                         Gasto
                     </label>
                 </div>
@@ -85,24 +88,7 @@
                 <li ><button>Ingresos</button></li>
                 <li ><button>Gastos</button></li>
             </ul>
-            <ul id="registroHistorial">
-                <li class="gastos">
-                    <div class="categoria">
-                        <h4>Lorem, ipsum.</h1>
-                        <h5>Lorem, ipsum.</h5>
-                    </div>
-                    <span>$00.00</span>
-                    <button><i class='bx bx-trash'></i></button>
-                </li>
-                <li class="ingresos">
-                    <div class="categoria">
-                        <h4>Lorem, ipsum.</h1>
-                        <h5>Lorem, ipsum.</h5>
-                    </div>
-                    <span>$00.00</span>
-                    <button><i class='bx bx-trash'></i></button>
-                </li>
-            </ul>
+            <ul id="registroHistorial"></ul>
         </section>
     </div>
 </body>

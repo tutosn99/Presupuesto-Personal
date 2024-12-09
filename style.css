@@ -7,7 +7,7 @@ body {
     font-family: 'Geist', sans-serif;}
 
 .container{
-    width: 70%;
+    width: 75%;
     padding-bottom: 40px;
     margin: 0 auto;
     display: flex;
@@ -86,15 +86,26 @@ button#addBtn{
 button#addBtn:hover{background-color: #0f0f0f;}
 
 article{
+    display: none;
     padding: 20px 30px;
     font-size: 1.2rem;
     border: solid 2px #e4e4e7;
     border-radius: 6px;
     box-shadow: 0px 5px 5px #00000009;
-    display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
+article.active{display: flex;}
+
+article h2{position: relative;}
+article h2 #btnClose i{
+    position: absolute; 
+    right: 0;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
 
 article #transaccion-form{
     display: flex;
@@ -148,10 +159,12 @@ article #transaccion-form .formBtn button#btnCancelar{
     background-color: #fff;
     color: #000;
     border: solid 1px #efeff0; 
+    cursor: pointer;
 }
 article #transaccion-form .formBtn button#btnGuardar{
     background-color: #000;
     color: #fff;
+    cursor: pointer;
 }
 
 section#historial{
@@ -207,13 +220,14 @@ section#historial ul#registroHistorial li{
 
 section#historial ul#registroHistorial li .categoria{
     flex: 1;
+    max-width: 90%;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-section#historial ul#registroHistorial li .categoria h4{font-size: 1.2rem;}
-section#historial ul#registroHistorial li .categoria h5{font-size: 1.05rem; color: #444}
+section#historial ul#registroHistorial li .categoria h4{font-size: 1.2rem; word-wrap: break-word;}
+section#historial ul#registroHistorial li .categoria h5{font-size: 1.05rem; color: #444; word-wrap: break-word;}
 
 
 section#historial ul#registroHistorial li span{font-size: 1.17rem;}
@@ -243,5 +257,5 @@ section#historial ul#registroHistorial li button i{font-size: 1.4rem;}
 #resumen article main .datos.negativo span{color: #e35252}
 #resumen article main .datos.positivo span{color: #16a34a}
 
-section#historial ul#registroHistorial li.gastos span{color: #e35252;}
+section#historial ul#registroHistorial li.gasto span{color: #e35252;}
 section#historial ul#registroHistorial li.ingresos span{color: #16a34a;}
