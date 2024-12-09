@@ -16,7 +16,7 @@ const historialCards = []
 const btnContainer = document.querySelector('#historial')
 const btnChangeViews = btnContainer.querySelectorAll('.btnViews')
 
-
+// permitir elegir que ver y eliminar clase no vista :)
 btnChangeViews.forEach((item)=>{
     const btnChange = item.parentElement
     let sectionChecked = item.parentElement
