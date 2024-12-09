@@ -1,29 +1,76 @@
 import { liTransacciones } from "./ui.js";
 import { formDates } from "./formInfo.js";
 
-let transacciones = [
-    { tipo: 'ingreso', monto: 5000, categoria: 'ingreso', descripcion: 'pizza' },
-    { tipo: 'ingreso', monto: 3000, categoria: 'ingreso', descripcion: 'salario' },
-    { tipo: 'gasto', monto: 1500, categoria: 'gasto', descripcion: 'alquiler' },
-];
-
-const containerHistorial = document.querySelector('#registroHistorial');
+let containerHistorial = document.querySelector('#registroHistorial');
 const btnAgregarTransferencia = document.querySelector('#addBtn');
 const formularioTransferencia = document.querySelector('#formTransferencia');
 
-function renderizarCards(datos) {
-    const card = liTransacciones(datos);
-    containerHistorial.append(card);
-    return card
-}
+let transacciones = [{tipo: "ingreso", monto: "10", categoria: "ingreso 1 . ", descripcion: "asdasdasd"},
+                    {tipo: "ingreso", monto: "10", categoria: "ingreso 2 . ", descripcion: "asdasdasd"},
+                    {tipo: "gasto", monto: "20", categoria: "gasto 1 . ", descripcion: "asdasdasd"},
+                    {tipo: "gasto", monto: "20", categoria: "gasto 2 . ", descripcion: "asdasdasd"}
+];
+
+const historialCards = []
+
+const btnContainer = document.querySelector('#historial')
+const btnChangeViews = btnContainer.querySelectorAll('.btnViews')
+
+
+btnChangeViews.forEach((item)=>{
+    const btnChange = item.parentElement
+    let sectionChecked = item.parentElement
+    btnChange.addEventListener('click', ()=>{
+        const btnClick = (item)
+        let newSectionChecked = item.parentElement
+
+        sectionChecked.classList.remove('active')
+        newSectionChecked.classList.add('active')
+        
+        switch (btnClick){
+            case 'todos':{
+                containerHistorial.innerHTML = '';
+                transacciones.forEach((t) => {const cartas = mostrarTransacciones(t, 'todos');}); 
+                break
+            }
+            case 'ingreso':{
+                containerHistorial.innerHTML = '';
+                transacciones.forEach((t) => {const cartas = mostrarTransacciones(t, 'ingreso');}); 
+                break
+            }
+            case 'gasto':{
+                containerHistorial.innerHTML = '';
+                transacciones.forEach((t) => {const cartas = mostrarTransacciones(t, 'gasto');}); 
+                break
+            }
+        }
+    })
+})
 
 function mostrarTransacciones(transaccion, opcion) {
-    let card = renderizarCards(transaccion)
-    if (transaccion.tipo !== opcion){return null} // Previene devolver Undefined
-    return card
+    const card = (transaccion.tipo === opcion || opcion === 'todos') ? liTransacciones(transaccion) : null; // if (muestra un tipo o todos los tipos) -> true: Crea la Carta. false: Devuelve null
+
+    if (card) containerHistorial.append(card) 
+
+
+    funcionesCards(card, transaccion)
+
+    return card;
 }
 
-transacciones.forEach((item) => {const cartas = mostrarTransacciones(item, 'ingreso');}); // Muestra las transferencias disponibles
+function funcionesCards(historialCard, transaccion) {
+    if (!historialCard) {return;}
+    const btnDelete = historialCard.querySelector('.deleteCard');
+    btnDelete.addEventListener('click', () => {
+        const index = transacciones.findIndex(t => t.descripcion === transaccion.descripcion && t.monto === transaccion.monto && t.tipo === transaccion.tipo);
+        if (index !== -1) {
+            transacciones.splice(index, 1);
+        }
+        historialCard.remove();
+    });
+}
+
+
 
 
 btnAgregarTransferencia.addEventListener('click', () => {
@@ -42,16 +89,15 @@ btnAgregarTransferencia.addEventListener('click', () => {
         switch (transferenciaTipo) {
             case 'ingreso': {
                 transacciones.push(formInfo);   
-                break;
-                
-            }
-
+                break;}
             case 'gasto': {
                 transacciones.push(formInfo); 
-                break;
-            }
-        }
-        const cartas = mostrarTransacciones(formInfo, 'ingreso');
+                break;}
+            case 'default':{console.log(nada)}}
+        const cartas = mostrarTransacciones(formInfo, 'todos')
+        btnClose.click()
+        ;
     });
 
 });
+

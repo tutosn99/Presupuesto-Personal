@@ -197,7 +197,7 @@ section#historial ul#btnHistorial li button{
     border: 0px transparent;
     cursor: pointer;
 }
-section#historial ul#btnHistorial li#active button{
+section#historial ul#btnHistorial li.active button{
     background-color: #fff;
     color: #000;
 }
@@ -258,4 +258,4 @@ section#historial ul#registroHistorial li button i{font-size: 1.4rem;}
 #resumen article main .datos.positivo span{color: #16a34a}
 
 section#historial ul#registroHistorial li.gasto span{color: #e35252;}
-section#historial ul#registroHistorial li.ingresos span{color: #16a34a;}
+section#historial ul#registroHistorial li.ingreso span{color: #16a34a;}

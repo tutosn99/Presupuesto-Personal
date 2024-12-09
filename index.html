@@ -47,7 +47,7 @@
                 <div class="transaccion-type">
                     <label class="label-radio">
                         <input type="radio" name="transaccion" value="ingreso" class="circle" class="option" checked>
-                        Ingreso
+                        ingreso
                     </label>
                     <label class="label-radio">
                         <input type="radio" name="transaccion" value="gasto" class="circle" class="option">
@@ -84,9 +84,9 @@
         
         <section id="historial">
             <ul id="btnHistorial">
-                <li id="active"><button>Todos</button></li>
-                <li ><button>Ingresos</button></li>
-                <li ><button>Gastos</button></li>
+                <li class="btnlist active"><button class="btnViews" value="todos">Todos</button></li>
+                <li class="btnlist" ><button class="btnViews" value="ingreso">Ingresos</button></li>
+                <li class="btnlist" ><button class="btnViews" value="gasto">Gasto</button></li>
             </ul>
             <ul id="registroHistorial"></ul>
         </section>

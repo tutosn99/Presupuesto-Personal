@@ -11,6 +11,7 @@ typeOptions.forEach((radio) => {
   radio.addEventListener("click", () => {
     const select = (radio) => {
       const selected = radio.checked;
+      console.log(selected)
       if (selected) {
         return selected;
       }
@@ -53,7 +54,7 @@ formContainer.addEventListener("submit", (event) => {
   formContainer.reset();
 
   // Restablecer el tipo a "Ingreso"
-  tipo = "Ingreso";
+  tipo = "ingreso";
 });
 
 // Función para exportar los datos
