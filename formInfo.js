@@ -1,7 +1,7 @@
 let formDate;
 
 const formContainer = document.querySelector("#transaccion-form");
-let tipo = "Ingreso";
+let tipo = "ingreso";
 
 const btnSubmit = formContainer.querySelector('button[type="submit"]');
 
@@ -11,7 +11,7 @@ typeOptions.forEach((radio) => {
   radio.addEventListener("click", () => {
     const select = (radio) => {
       const selected = radio.checked;
-      console.log(selected)
+      console.log(selected);
       if (selected) {
         return selected;
       }
@@ -48,7 +48,6 @@ formContainer.addEventListener("submit", (event) => {
     categoria: categoria,
     descripcion: descripcion,
   };
-  exportFormData();
 
   // Reiniciar el formulario
   formContainer.reset();
@@ -58,11 +57,12 @@ formContainer.addEventListener("submit", (event) => {
 });
 
 // Función para exportar los datos
-function exportFormData() {
-  const exportedData = formDates();
+function exportedData(datos) {
+  let dates = formDate;
+  return dates;
 }
 
 // Función para exportar los datos
 export function formDates() {
-  return formDate;
+  return exportedData(formDate);
 }
